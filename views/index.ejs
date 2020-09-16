@@ -1,0 +1,17 @@
+<% include partials/header.ejs %>
+
+<% blogs.forEach(function(blog){ %>
+	<div class="ui main text container segment">
+		<div class="ui huge header"><%=blog.title%></div>
+		<img src="<%=blog.image%>">
+		<hr>
+		<!-- toDateString causes the date to displayed as Day and Date (Month, Day, Year) -->
+		<span><%=blog.created.toDateString()%></span>
+		<hr>
+		<!-- This causes the text to be cut off at 100 characters -->
+		<p><%=blog.body.substring(0,100)%>...</p>
+		<a href="blogs/<%= blog._id %>">Read More</a>
+	</div>	
+<% }); %>
+
+<% include partials/footer.ejs %>
